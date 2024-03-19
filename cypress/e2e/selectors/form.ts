@@ -5,4 +5,6 @@ export const date_range_start_selector =
 export const date_range_end_selector =
   "#date-range-end-input > .MuiFormControl-root";
 
+export const job_description_selector = "#job-description-input"
+
 export const submit_job_button_selector = "#submit-job-button"; 
