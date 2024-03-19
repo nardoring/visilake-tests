@@ -35,3 +35,10 @@
 //     }
 //   }
 // }
+
+declare namespace Cypress {
+  interface Chainable<Subject = any> {
+    selectAnalysisType(analysisType: string): void;
+    verifySelectedAnalysisType(expectedText: string): void;
+  }
+}
