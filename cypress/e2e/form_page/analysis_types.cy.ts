@@ -12,7 +12,7 @@ describe("Form Page: Analysis Types Entry Validation", () => {
   it("fails for no analysis entry", () => { // TODO: Update when no analysis type selection is allowed
     cy.get(submit_job_button_selector).click(); 
 
-    cy.get(analysis_types_selector).should("have.class", "ring-1 ring-red");
+    cy.get(analysis_types_selector).shouldBeErrorHighlighted();
   });
 
   it("passes for valid single analysis type entry", () => {
@@ -23,7 +23,7 @@ describe("Form Page: Analysis Types Entry Validation", () => {
 
     cy.get(submit_job_button_selector).click();
 
-    cy.get(analysis_types_selector).should("not.have.class", "ring-1 ring-red");
+    cy.get(analysis_types_selector).shouldNotBeErrorHighlighted();
   });
 
   it("passes for valid multiple analysis types entry", () => {
@@ -36,17 +36,6 @@ describe("Form Page: Analysis Types Entry Validation", () => {
 
     cy.get(submit_job_button_selector).click();
 
-    cy.get(analysis_types_selector).should("not.have.class", "ring-1 ring-red");
+    cy.get(analysis_types_selector).shouldNotBeErrorHighlighted();
   });
-});
-
-// Custom commands
-Cypress.Commands.add("selectAnalysisType", (analysisType) => {
-  cy.get("#analysis-type-input .options")
-    .contains("span", analysisType)
-    .click();
-});
-
-Cypress.Commands.add("verifySelectedAnalysisType", (expectedText) => {
-  cy.get(".dropdown-heading-value span").should("have.text", expectedText);
 });

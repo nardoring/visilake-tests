@@ -11,7 +11,7 @@ describe("Form Page: Job Description Entry Validation", () => {
   it("error for no job description entry", () => {
     cy.get(submit_job_button_selector).click();
 
-    cy.get(job_description_selector).should("have.class", "ring-1 ring-red");
+    cy.get(job_description_selector).shouldBeErrorHighlighted();
   });
 
   it("passes for valid job description entry", () => {
@@ -21,9 +21,6 @@ describe("Form Page: Job Description Entry Validation", () => {
 
     cy.get(submit_job_button_selector).click();
 
-    cy.get(job_description_selector).should(
-      "not.have.class",
-      "ring-1 ring-red"
-    );
+    cy.get(job_description_selector).shouldNotBeErrorHighlighted();
   });
 });

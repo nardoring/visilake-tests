@@ -40,5 +40,34 @@ declare namespace Cypress {
   interface Chainable<Subject = any> {
     selectAnalysisType(analysisType: string): void;
     verifySelectedAnalysisType(expectedText: string): void;
+
+    shouldBeErrorHighlighted(): Chainable<Subject>;
+    shouldNotBeErrorHighlighted(): Chainable<Subject>;
   }
 }
+
+Cypress.Commands.add(
+  "shouldBeErrorHighlighted",
+  { prevSubject: true },
+  ($element) => {
+    cy.wrap($element).should("have.class", "ring-1 ring-red");
+  }
+);
+
+Cypress.Commands.add(
+  "shouldNotBeErrorHighlighted",
+  { prevSubject: true },
+  ($element) => {
+    cy.wrap($element).should("not.have.class", "ring-1 ring-red");
+  }
+);
+
+Cypress.Commands.add("selectAnalysisType", (analysisType) => {
+  cy.get("#analysis-type-input .options")
+    .contains("span", analysisType)
+    .click();
+});
+
+Cypress.Commands.add("verifySelectedAnalysisType", (expectedText) => {
+  cy.get(".dropdown-heading-value span").should("have.text", expectedText);
+});

@@ -1,4 +1,8 @@
-import {date_range_start_selector, date_range_end_selector, submit_job_button_selector} from "../selectors/form";
+import {
+  date_range_start_selector,
+  date_range_end_selector,
+  submit_job_button_selector,
+} from "../selectors/form";
 
 describe("Form Page: Date Range Entry Validation", () => {
   beforeEach(() => {
@@ -8,8 +12,8 @@ describe("Form Page: Date Range Entry Validation", () => {
   it("error for no date range entry", () => {
     cy.get(submit_job_button_selector).click();
 
-    cy.get(date_range_start_selector).should("have.class", "ring-1 ring-red");
-    cy.get(date_range_end_selector).should("have.class", "ring-1 ring-red");
+    cy.get(date_range_start_selector).shouldBeErrorHighlighted();
+    cy.get(date_range_end_selector).shouldBeErrorHighlighted();
   });
 
   it("error for invalid date range entry", () => {
@@ -21,8 +25,8 @@ describe("Form Page: Date Range Entry Validation", () => {
 
     cy.get(submit_job_button_selector).click();
 
-    cy.get(date_range_start_selector).should("have.class", "ring-1 ring-red");
-    cy.get(date_range_end_selector).should("have.class", "ring-1 ring-red");
+    cy.get(date_range_start_selector).shouldBeErrorHighlighted();
+    cy.get(date_range_end_selector).shouldBeErrorHighlighted();
   });
 
   it("passes for valid date range entry", () => {
@@ -34,13 +38,7 @@ describe("Form Page: Date Range Entry Validation", () => {
 
     cy.get(submit_job_button_selector).click();
 
-    cy.get(date_range_start_selector).should(
-      "not.have.class",
-      "ring-1 ring-red"
-    );
-    cy.get(date_range_end_selector).should(
-      "not.have.class",
-      "ring-1 ring-red"
-    );
+    cy.get(date_range_start_selector).shouldNotBeErrorHighlighted();
+    cy.get(date_range_end_selector).shouldNotBeErrorHighlighted();
   });
 });

@@ -11,7 +11,7 @@ describe("Form Page: Job Name Entry Validation", () => {
   it("error for no job name entry", () => {
     cy.get(submit_job_button_selector).click();
 
-    cy.get(job_name_selector).should("have.class", "ring-1 ring-red");
+    cy.get(job_name_selector).shouldBeErrorHighlighted();
   });
 
   it("passes for valid job name entry", () => {
@@ -19,6 +19,6 @@ describe("Form Page: Job Name Entry Validation", () => {
 
     cy.get(submit_job_button_selector).click();
 
-    cy.get(job_name_selector).should("not.have.class", "ring-1 ring-red");
+    cy.get(job_name_selector).shouldNotBeErrorHighlighted();
   });
 });
