@@ -50,7 +50,8 @@ Cypress.Commands.add(
   "shouldBeErrorHighlighted",
   { prevSubject: true },
   ($element) => {
-    cy.wrap($element).should("have.class", "ring-1 ring-red");
+    cy.wrap($element)
+      .should("have.class", "ring-red")
   }
 );
 
@@ -58,7 +59,8 @@ Cypress.Commands.add(
   "shouldNotBeErrorHighlighted",
   { prevSubject: true },
   ($element) => {
-    cy.wrap($element).should("not.have.class", "ring-1 ring-red");
+    cy.wrap($element)
+      .should("not.have.class", "ring-red")
   }
 );
 
