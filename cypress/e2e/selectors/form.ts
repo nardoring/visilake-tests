@@ -2,6 +2,8 @@ export const job_name_selector = "#job-name-input"
 
 export const analysis_types_selector = "#analysis-type-input .rmsc"
 
+export const sources_selector = ".MuiAutocomplete-root"
+
 export const date_range_start_selector =
   "#date-range-start-input > .MuiFormControl-root";
 export const date_range_end_selector =
