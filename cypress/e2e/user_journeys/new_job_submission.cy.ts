@@ -10,8 +10,7 @@ import {
 } from "../selectors/form";
 
 describe("Job Submission Tests", function () {
-  before(function () {
-    cy.visit("http://localhost:45139/");
+  beforeEach(function () {
     cy.fixture("job_submission.json").then(function (job_submission_data) {
       this.job_name = job_submission_data.job_name;
       this.analysis_types = job_submission_data.analysis_types;
@@ -23,22 +22,24 @@ describe("Job Submission Tests", function () {
   });
 
   it("Verify job submission is successful", function () {
+    cy.visit("http://localhost:45139/");
+
     // Enter job name
     cy.get(job_name_selector).type(this.job_name);
 
     // Select analysis types
-    this.analysis_types.forEach((analysisType) => {
+    this.analysis_types.forEach((analysisType: string) => {
       cy.selectAnalysisType(analysisType);
     });
 
     // Enter sources
-    this.sources.forEach((source) => {
+    this.sources.forEach((source: string) => {
       cy.get(sources_selector).type(source).type("{enter}");
     });
 
     // Enter date range
-    cy.get(date_range_start_selector).type(this.date_range[0]);
-    cy.get(date_range_end_selector).type(this.date_range[1]);
+    cy.get(date_range_start_selector).typeDate(this.date_range[0]);
+    cy.get(date_range_end_selector).typeDate(this.date_range[1]);
 
     // Enter job description
     cy.get(job_description_selector).type(this.description);
@@ -54,5 +55,25 @@ describe("Job Submission Tests", function () {
 
     // Navigate to list page
     cy.get(view_jobs_button_selector).click();
+  });
+
+  it("Verify table data is correct", function () {
+    cy.visit("http://localhost:45139/ListPage");
+
+    cy.showAllColumns();
+
+    const rowData = {
+      job_name: this.job_name,
+      job_description: this.description,
+      sources: this.sources,
+      analysis_types: this.analysis_types,
+      granularity: "24h",
+      date_range: this.date_range,
+      date: new Date().toLocaleDateString("en-CA"),
+      author: "Test Author",
+      status: "Pending",
+    };
+
+    cy.get('[row-index="0"]').verifyTableRowData(rowData);
   });
 });
