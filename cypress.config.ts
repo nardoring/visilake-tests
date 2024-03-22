@@ -6,5 +6,6 @@ export default defineConfig({
 
   e2e: {
     specPattern: "cypress/tests/**/*.cy.ts",
+    experimentalRunAllSpecs: true,
   },
 });
