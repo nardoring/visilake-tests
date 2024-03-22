@@ -17,11 +17,11 @@ describe("Form Page: Date Range Entry Validation", () => {
   });
 
   it("error for invalid date range entry", () => {
-    const startDate = "01/01/2020 00:00";
-    const endDate = "01/01/2000 00:00";
+    const startDate = "01/01/2020 05:30";
+    const endDate = "01/01/2000 10:45";
 
-    cy.get(date_range_start_selector).type(startDate);
-    cy.get(date_range_end_selector).type(endDate);
+    cy.get(date_range_start_selector).typeDate(startDate);
+    cy.get(date_range_end_selector).typeDate(endDate);
 
     cy.get(submit_job_button_selector).click();
 
@@ -30,11 +30,11 @@ describe("Form Page: Date Range Entry Validation", () => {
   });
 
   it("passes for valid date range entry", () => {
-    const startDate = "01/01/2000 00:00";
-    const endDate = "01/01/2020 00:00";
+    const startDate = "01/01/2000 14:30";
+    const endDate = "01/01/2020 19:30";
 
-    cy.get(date_range_start_selector).type(startDate);
-    cy.get(date_range_end_selector).type(endDate);
+    cy.get(date_range_start_selector).typeDate(startDate);
+    cy.get(date_range_end_selector).typeDate(endDate);
 
     cy.get(submit_job_button_selector).click();
 
