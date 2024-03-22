@@ -14,3 +14,5 @@ export const date_range_end_selector =
 export const job_description_selector = "#job-description-input";
 
 export const submit_job_button_selector = "#submit-job-button"; 
+
+export const submission_result_header_selector = "#form-popup-header";
