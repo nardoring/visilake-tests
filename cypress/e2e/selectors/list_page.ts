@@ -1,0 +1,1 @@
+export const new_job_button_selector = "#new-job-button";
