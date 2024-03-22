@@ -9,7 +9,7 @@ import {
   view_jobs_button_selector,
 } from "../../selectors/form";
 
-describe("Job Submission Tests", function () {
+describe("e2e Job Submission Tests", function () {
   beforeEach(function () {
     cy.fixture("job_submission.json").then(function (job_submission_data) {
       this.job_name = job_submission_data.job_name;

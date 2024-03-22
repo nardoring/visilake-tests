@@ -1,7 +1,7 @@
 import {
   analysis_types_selector,
   submit_job_button_selector,
-} from "../../selectors/form";
+} from "../../../selectors/form";
 
 describe("Form Page: Analysis Types Entry Validation", () => {
   beforeEach(() => {

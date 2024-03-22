@@ -1,7 +1,7 @@
 import {
   sources_selector,
   submit_job_button_selector,
-} from "../../selectors/form";
+} from "../../../selectors/form";
 
 describe("Form Page: Source Entry Validation", () => {
   beforeEach(() => {
