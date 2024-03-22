@@ -14,7 +14,8 @@
 // ***********************************************************
 
 // Import commands
-import './commands/analysis_types';
-import './commands/error_highlighting';
-import './commands/list';
-import './commands/date_range';
+import "./commands/analysis_types";
+import "./commands/error_highlighting";
+import "./commands/list";
+import "./commands/date_range";
+import "./commands/sources";

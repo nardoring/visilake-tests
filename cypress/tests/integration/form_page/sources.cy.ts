@@ -41,8 +41,7 @@ describe("Form Page: Source Entry Validation", () => {
     });
 
     it("passes for valid source entry", () => {
-      // Select first autocomplete result
-      cy.get(sources_selector).click().type("{downarrow}").type("{enter}");
+      cy.get(sources_selector).selectFirstAutocompleteOption();
 
       cy.get(submit_job_button_selector).click();
 
@@ -50,9 +49,8 @@ describe("Form Page: Source Entry Validation", () => {
     });
 
   it("passes for entering multiple valid sources", () => {
-    // Select first two autocomplete results
-    cy.get(sources_selector).click().type("{downarrow}").type("{enter}");
-    cy.get(sources_selector).click().type("{downarrow}").type("{enter}");
+    cy.get(sources_selector).selectFirstAutocompleteOption();
+    cy.get(sources_selector).selectFirstAutocompleteOption();
 
     cy.get(submit_job_button_selector).click();
 
