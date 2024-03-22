@@ -2,6 +2,19 @@ declare namespace Cypress {
   interface Chainable<Subject = any> {
     clickColumnsButton(): Chainable<Subject>;
     showAllColumns(): Chainable<Subject>;
+    verifyTableRowData(rowData: TableRowData): Chainable;
+  }
+
+  interface TableRowData {
+    job_name: string;
+    job_description: string;
+    sources: string[];
+    analysis_types: string[];
+    granularity: string;
+    date_range: string[];
+    date: string;
+    author: string;
+    status: string;
   }
 }
 
@@ -19,5 +32,21 @@ Cypress.Commands.add("showAllColumns", () => {
         cy.wrap(checkbox).click();
       }
     });
+  });
+});
+
+Cypress.Commands.add("verifyTableRowData", { prevSubject: true }, ($row, rowData) => {
+  const { job_name, job_description, sources, analysis_types, granularity, date_range, date, author, status} = rowData;
+
+  cy.wrap($row).within(() => {
+    cy.get('[col-id="jobName"]').should("contain.text", job_name);
+    cy.get('[col-id="jobDescription"]').should("contain.text", job_description);
+    cy.get('[col-id="sources"]').should("contain.text", sources.join(", "));
+    cy.get('[col-id="analysisTypes"]').should("contain.text", analysis_types.join(", "));
+    cy.get('[col-id="granularity"]').should("contain.text", granularity);
+    // cy.get('[col-id="dateRange"]').should("contain.text", date_range.join(" - ")); //TODO: Fix Date Range formatting & col-id
+    cy.get('[col-id="date"]').should("contain.text", date);
+    cy.get('[col-id="author"]').should("contain.text", author);
+    cy.get('[col-id="jobStatus"]').should("contain.text", status);
   });
 });
