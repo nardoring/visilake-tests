@@ -8,6 +8,7 @@ import {
   submit_job_button_selector,
   view_jobs_button_selector,
 } from "../../selectors/form";
+import { first_table_row_selector } from "../../selectors/list_page";
 
 describe("e2e Job Submission Tests", function () {
   beforeEach(function () {
@@ -62,7 +63,7 @@ describe("e2e Job Submission Tests", function () {
 
     cy.showAllColumns();
 
-    const rowData = {
+    const expectedRowData = {
       job_name: this.job_name,
       job_description: this.description,
       sources: this.sources,
@@ -74,6 +75,6 @@ describe("e2e Job Submission Tests", function () {
       status: "Pending",
     };
 
-    cy.get('[row-index="0"]').verifyTableRowData(rowData);
+    cy.get(first_table_row_selector).verifyTableRowData(expectedRowData);
   });
 });
