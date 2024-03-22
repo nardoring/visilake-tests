@@ -6,9 +6,11 @@ declare namespace Cypress {
 }
 
 Cypress.Commands.add("selectAnalysisType", (analysisType) => {
-  cy.get("#analysis-type-input .options")
+  cy.get("#analysis-type-input .rmsc").click();
+  cy.wait(250).get("#analysis-type-input .options")
     .contains("span", analysisType)
     .click();
+  cy.get("#analysis-type-input .rmsc").click();
 });
 
 Cypress.Commands.add("verifySelectedAnalysisType", (expectedText) => {

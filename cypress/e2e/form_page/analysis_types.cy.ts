@@ -16,8 +16,6 @@ describe("Form Page: Analysis Types Entry Validation", () => {
   });
 
   it("passes for valid single analysis type entry", () => {
-    cy.get(analysis_types_selector).click();
-
     cy.selectAnalysisType("Rolling Mean");
     cy.verifySelectedAnalysisType("Rolling Mean");
 
@@ -27,8 +25,6 @@ describe("Form Page: Analysis Types Entry Validation", () => {
   });
 
   it("passes for valid multiple analysis types entry", () => {
-    cy.get(analysis_types_selector).click();
-
     cy.selectAnalysisType("Rolling Mean");
     cy.selectAnalysisType("Autocorrelation"); // TODO: Update when Analysis Type Dropdown is updated to actual options (Rolling Mean, Correlation, EDA)
 
