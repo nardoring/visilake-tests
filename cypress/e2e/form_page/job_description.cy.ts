@@ -1,7 +1,7 @@
 import {
   job_description_selector,
   submit_job_button_selector,
-} from "../selectors/form";
+} from "../../selectors/form";
 
 describe("Form Page: Job Description Entry Validation", () => {
   beforeEach(() => {

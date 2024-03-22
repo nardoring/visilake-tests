@@ -1,4 +1,4 @@
-import { view_jobs_button_selector } from "../selectors/form";
+import { view_jobs_button_selector } from "../../selectors/form";
 
 describe("Page Redirects: Form Page", () => {
   beforeEach(() => {

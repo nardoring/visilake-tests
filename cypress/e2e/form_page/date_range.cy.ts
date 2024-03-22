@@ -2,7 +2,7 @@ import {
   date_range_start_selector,
   date_range_end_selector,
   submit_job_button_selector,
-} from "../selectors/form";
+} from "../../selectors/form";
 
 describe("Form Page: Date Range Entry Validation", () => {
   beforeEach(() => {

@@ -1,7 +1,7 @@
 import {
   job_name_selector,
   submit_job_button_selector,
-} from "../selectors/form";
+} from "../../selectors/form";
 
 describe("Form Page: Job Name Entry Validation", () => {
   beforeEach(() => {

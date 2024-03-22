@@ -7,7 +7,7 @@ import {
   submission_result_header_selector,
   submit_job_button_selector,
   view_jobs_button_selector,
-} from "../selectors/form";
+} from "../../selectors/form";
 
 describe("Job Submission Tests", function () {
   beforeEach(function () {

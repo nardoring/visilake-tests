@@ -1,4 +1,4 @@
-import { new_job_button_selector } from "../selectors/list_page";
+import { new_job_button_selector } from "../../selectors/list_page";
 
 describe("Page Redirects: List Page", () => {
   beforeEach(() => {
