@@ -36,6 +36,7 @@ describe("e2e Job Submission Tests", function () {
     // Enter sources
     this.sources.forEach((source: string) => {
       cy.get(sources_selector).type(source).type("{enter}");
+      cy.checkSourceTag(source, true);
     });
 
     // Enter date range
