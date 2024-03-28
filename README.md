@@ -36,12 +36,12 @@ Select `E2E Tesing`
 
 ### Select Test Specs
 
-Test spec files include the code for running each test. Click on any spec to run the associated tests.
+Test spec files include the code for running each test. Click on any spec to run the associated tests, or click `Run X Specs` to run all tests.
 
-![image](https://github.com/nardoring/nardo-web-tests/assets/47069058/793cdbd9-6c55-4881-abc6-4cca3416d0ab)
+![image](https://github.com/nardoring/nardo-web-tests/assets/47069058/84003112-11f1-4af5-8b5c-2b322681b615)
 
 ### Viewing Test Results
 
-Once a test spec has been selected, the tests will run within the browser. The results will display in the 'specs' panel as the tests run.
+After selecting the test spec(s), the tests will commence execution within the browser environment. As the tests run, you can monitor the results in real-time within the 'specs' panel.
 
 ![image](https://github.com/nardoring/nardo-web-tests/assets/47069058/7aad1aec-c728-4ebe-a924-a6b0e599509c)
