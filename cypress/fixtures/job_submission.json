@@ -1,0 +1,7 @@
+{
+  "job_name": "New Job Submission Test",
+  "analysis_types": ["Rolling Mean", "Autocorrelation"],
+  "sources": ["1234-AB-12345", "1234-ABC-12345"],
+  "date_range": ["03-07-2024 00:00", "03-14-2024 10:00"],
+  "description": "New Job Submission Test Description"
+}
