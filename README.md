@@ -1,5 +1,5 @@
-# Nardo Web Tests
-Included in this repo are various integration tests and end to end (e2e) tests for [nardo-web](https://github.com/nardoring/nardo-web)
+# VisiLake Web Tests
+Included in this repo are various integration tests and end to end (e2e) tests for [visilake-web](https://github.com/nardoring/visilake-web)
 
 All testing is conducted using the [Cypress](https://www.cypress.io/) testing framework.
 
