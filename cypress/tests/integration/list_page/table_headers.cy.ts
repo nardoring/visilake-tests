@@ -1,4 +1,4 @@
-describe("", () => {
+describe("List Page: Table Column and Header Tests", () => {
   beforeEach(() => {
     cy.visit("http://localhost:45139/ListPage");
   });
